@@ -31,13 +31,15 @@
             </a>
             <a class="brand" href="#">SAPOC</a>
             <div class="nav-collapse collapse">
-                <p class="navbar-text pull-right">
-                  Logged in as <a href="#" class="navbar-link">Username</a>
-                </p>
+                <!--p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Username</a></p-->
                 <ul class="nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li><a href="#about">Вход</a></li>
+                    <li><a href="#contact">Регистрация</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
