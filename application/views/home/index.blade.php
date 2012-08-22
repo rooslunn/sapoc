@@ -21,7 +21,7 @@
 				<h2>Learn the terrain.</h2>
 
 				<p>
-					You've landed yourself on our default home page. The route that
+					You've, Ruslan, landed yourself on our default home page. The route that
 					is generating this page lives at:
 				</p>
 
