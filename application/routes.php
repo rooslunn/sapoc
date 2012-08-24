@@ -32,7 +32,13 @@
 |
 */
 
+// start page
 Route::get('/', 'sapoc@index');
+
+// auth
+Route::get('login', 'sapoc@login');
+Route::post('login', 'sapoc@auth');
+
 
 /*
 Route::get('/', function()

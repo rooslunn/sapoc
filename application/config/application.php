@@ -40,7 +40,7 @@ return array(
 	*/
 
 	'index' => 'index.php',
-
+/* 	'index' => '', */
 	/*
 	|--------------------------------------------------------------------------
 	| Application Key
@@ -53,7 +53,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKeyGoesHere!',
+	'key' => 'xRarecCnZL5CjMjZGE7gu9ezIws9QIom',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,8 @@ return array(
 	|
 	*/
 
-	'profiler' => false,
+/* 	'profiler' => false, */
+	'profiler' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,6 +110,7 @@ return array(
 	|
 	*/
 
+/* 	'ssl' => true, */
 	'ssl' => true,
 
 	/*

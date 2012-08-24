@@ -29,17 +29,21 @@
             	<span class="icon-bar"></span>
             	<span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">SAPOC</a>
+            <a class="brand" href="#"><strong>SAPOC</strong></a>
             <div class="nav-collapse collapse">
                 <!--p class="navbar-text pull-right">Logged in as <a href="#" class="navbar-link">Username</a></p-->
                 <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="/">Home</a></li>
+<!--
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+-->
                 </ul>
                 <ul class="nav pull-right">
-                    <li><a href="#about">Вход</a></li>
-                    <li><a href="#contact">Регистрация</a></li>
+                    @section('login')
+                    <li>{{ HTML::link('login', 'Sign in') }}</li>
+                    <li><a href="#contact">Register</a></li>
+                    @yield_section
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -49,24 +53,33 @@
 <!--/container -->
 <div class="container-fluid">
     <div class="row-fluid">
-        <!--/span -->
-        <div class="span3">
+    
+        <!--/span2 -->
+        <div class="span2">
             <div class="well sidebar-nav">
             <ul class="nav nav-list">
-                <li class="nav-header">Грузы</li>
+                @section('menu')
+                <li class="nav-header">Freight</li>
                 <!-- li class="active"><a href="#">Link</a></li-->
-                <li><a href="#">Добавить груз</a></li>
-                <li><a href="#">Найти ТС</a></li>
-                <li class="nav-header">Транспорт</li>
-                <li><a href="#">Добавить ТС</a></li>
-                <li><a href="#">Найти груз</a></li>
+                <li><a href="#">Add</a></li>
+                <li><a href="#">Find</a></li>
+                <li class="nav-header">Transport</li>
+                <li><a href="#">Add</a></li>
+                <li><a href="#">Find</a></li>
+                @yield_section
+                @yield('locked_menu')
             </ul>
             </div><!--/.well -->
-        </div><!--/span-->
+        </div><!--/span2-->
+        
+        <!--/span10 -->
+        <div class="span10">
+            @yield('content')
+        </div><!--/span10-->
+        
     </div><!--/row-->
 </div><!--/container-->
     
-
 {{ Asset::scripts() }}
 </body>
 </html>

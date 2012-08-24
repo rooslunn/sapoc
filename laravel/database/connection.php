@@ -260,6 +260,7 @@ class Connection {
 		// debugging is much easier on the developer.
 		catch (\Exception $exception)
 		{
+    		var_dump($this->config);
 			$exception = new Exception($sql, $bindings, $exception);
 
 			throw $exception;

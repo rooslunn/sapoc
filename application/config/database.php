@@ -73,6 +73,12 @@ return array(
 			'database' => getenv('MYSQL_DB_NAME'),
 			'username' => getenv('MYSQL_USERNAME'),
 			'password' => getenv('MYSQL_PASSWORD'),
+/*
+			'host'     => '127.0.0.1',
+			'database' => 'sapoc',
+			'username' => 'root',
+			'password' => '',
+*/
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),
