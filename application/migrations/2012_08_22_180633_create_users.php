@@ -13,12 +13,11 @@ class Create_Users {
             $table->increments('id');
             $table->string('email', 64)->unique(); // unique index for faster search
             $table->string('password', 64);
-/*             $table->string('activation_code', 64); */
 
             $table->string('company', 64);
             $table->string('company_id', 32);
-            $table->integer('country_id');
-            $table->integer('district_id');
+            $table->string('country_id', 64);
+            $table->string('district_id', 64);
             $table->string('city', 64);
             $table->string('address', 128);
             $table->string('phone_1', 32);

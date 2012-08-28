@@ -11,6 +11,9 @@
             </div>        
         @endif
         
+        <!-- CSRF -->
+        {{ Form::token() }}
+
         <!-- username field -->
         {{ Form::label('email', __('form-login.email')) }}
         {{ Form::email('email') }}
