@@ -5,7 +5,7 @@ return array(
     'password'  => 'Password',
     'forgot'    => 'Forgot your password?',
     'btn-login' => 'Sign In',
-    'register'  => 'Not registered? Fuck you!',
+    'register'  => 'Not registered?',
     'failed'    => 'OMG… You forgot your password… Try again, please.',
     
 );

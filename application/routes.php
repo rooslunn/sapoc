@@ -39,6 +39,9 @@ Route::get('/', 'sapoc@index');
 Route::get('login', 'sapoc@login');
 Route::post('login', 'sapoc@auth');
 
+// register
+Route::get('register', 'sapoc@register');
+Route::post('register', 'sapoc@create_user');
 
 /*
 Route::get('/', function()

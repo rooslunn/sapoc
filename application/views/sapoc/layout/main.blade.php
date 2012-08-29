@@ -41,8 +41,8 @@
                 </ul>
                 <ul class="nav pull-right">
                     @section('login')
-                    <li>{{ HTML::link('login', 'Sign in') }}</li>
-                    <li><a href="#contact">Register</a></li>
+                    <li>{{ HTML::link_to_action('sapoc@login', 'Sign in') }}</li>
+                    <li>{{ HTML::link_to_action('sapoc@register', 'Register') }}</li>
                     @yield_section
                 </ul>
             </div><!--/.nav-collapse -->
