@@ -88,12 +88,17 @@ class Sapoc_Controller extends Base_Controller {
                     ->with_input();
         }
         
-        $this->send_verification_message($input['email']);
+        $res = $this->send_verification_message($input['email']);
+        if ($res) {
+            Log::info("Verification successfully sent to {$input['email']}");
+        }
+        
         return View::make('sapoc.pages.verification');
     }
 
     private function get_verification_link($email) {
-    	$vcode = Hash::make($email . Config::get('application.email_salt'));
+        $salt = Config::get('application.email_salt');
+    	$vcode = Hash::make($email . $salt);
         $link = sprintf("%s/%s/%s",
             HTML::link_to_action('sapoc@register'),
             htmlentities($email),
@@ -107,7 +112,8 @@ class Sapoc_Controller extends Base_Controller {
     	$message = View::make('sapoc.mail.verification')
                         ->with('link', $link);
     
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers = 'From: sapoc.mail@yandex.ru' . "\r\n";
+        $headers .= 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";	
         
         $subject = __('form-verify.email-subject');
