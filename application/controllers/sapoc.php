@@ -92,11 +92,20 @@ class Sapoc_Controller extends Base_Controller {
         return View::make('sapoc.pages.verification');
     }
 
-	private function send_verification_message($email) {
+    private function get_verification_link($email) {
     	$vcode = Hash::make($email . Config::get('application.email_salt'));
+        $link = sprintf("%s/%s/%s",
+            HTML::link_to_action('sapoc@register'),
+            htmlentities($email),
+            $vcode
+        );
+        return $link;
+    }
+    
+	private function send_verification_message($email) {
+	    $link = $this->get_verification_link($email);
     	$message = View::make('sapoc.mail.verification')
-                        ->with('email', $email)
-       	                ->with('vcode', $vcode);
+                        ->with('link', $link);
     
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";	
