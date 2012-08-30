@@ -53,7 +53,7 @@ class Sapoc_Controller extends Base_Controller {
     	);
     	
     	$rules = array(
-    	   'email'     => 'email|unique:users|required|min:6',
+    	   'email'     => 'email|unique:users|required',
     	   'password'  => 'required|min:6',
     	);
     	$v = Validator::make($user_data, $rules);
@@ -66,23 +66,45 @@ class Sapoc_Controller extends Base_Controller {
         	$user_data['password'] = Hash::make($user_data['password']);
         	$user = new User($user_data);
         	$user->save();
-        	
-        	$this->send_activation_message($user_data['email']);
-        	return View::make('sapoc.pages.activation');
+        	return View::make('sapoc.pages.index-full');
     	}
 	}
 	
-	private function send_activation_message($email) {
-    	$acode = Hash::make($email); // TODO: make more sec, add salt
-    	$message = View::make('sapoc.mail.activation')
-    	               ->with('acode', $acode);
+    public function action_verify() {
+        return View::make('sapoc.pages.verify');
+    }
+    
+    public function action_send_verification() {
+        $input = array(
+            'email' => Input::get('email'),
+        );
+        $rules = array(
+            'email' => 'email|unique:users|required',
+        );
+        $v = Validator::make($input, $rules);
+        if ($v->fails()) {
+            return Redirect::to('verify')
+                    ->with_errors($v)
+                    ->with_input();
+        }
+        
+        $this->send_verification_message($input['email']);
+        return View::make('sapoc.pages.verification');
+    }
+
+	private function send_verification_message($email) {
+    	$vcode = Hash::make($email . Config::get('application.email_salt'));
+    	$message = View::make('sapoc.mail.verification')
+                        ->with('email', $email)
+       	                ->with('vcode', $vcode);
     
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";	
         
-        $subject = 'Activation code';
+        $subject = __('form-verify.email-subject');
         
         return mail($email, $subject, $message, $headers);
-}
+    }
+    
 	
 }

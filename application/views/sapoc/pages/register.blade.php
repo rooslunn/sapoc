@@ -17,11 +17,11 @@
         {{ Form::hidden('active', 0) }}
         
         <!-- Fields -->
-        {{ Form::label('email', __('form-register.email')) }}
+        {{ Form::label('email', __('form-login.email')) }}
         {{ $errors->first('email', '<span class="label label-important">:message</span></p>') }}
         {{ Form::email('email') }}
         
-        {{ Form::label('password', __('form-register.password')) }}
+        {{ Form::label('password', __('form-login.password')) }}
         {{ $errors->first('password', '<span class="label label-important">:message</span></p>') }}
         {{ Form::password('password') }}
         

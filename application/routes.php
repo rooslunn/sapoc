@@ -40,6 +40,8 @@ Route::get('login', 'sapoc@login');
 Route::post('login', 'sapoc@auth');
 
 // register
+Route::get('verify', 'sapoc@verify');
+Route::post('verify', 'sapoc@send_verification');
 Route::get('register', 'sapoc@register');
 Route::post('register', 'sapoc@create_user');
 

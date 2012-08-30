@@ -10,6 +10,9 @@ class Create_Users {
     public function up()
     {
         Schema::create('users', function($table) {
+            $table->engine = 'InnoDB';
+//            $table->charset('utf8');
+            
             $table->increments('id');
             $table->string('email', 64)->unique(); // unique index for faster search
             $table->string('password', 64);
