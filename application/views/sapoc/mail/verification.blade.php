@@ -3,6 +3,6 @@
 </head>
 <body>
     <h4>Verification message</h4>
-    <a>{{ $link }}</a>
+    {{ HTML::link($link, $linkname) }}
 </body>
 </html>

@@ -14,12 +14,15 @@
         <!-- CSRF -->
         {{ Form::token() }}
         
-        {{ Form::hidden('active', 0) }}
+<!--        {{ Form::hidden('active', 1) }}-->
+        {{ Form::hidden('code', $code) }}
+        {{ Form::hidden('email', $email) }}
         
         <!-- Fields -->
         {{ Form::label('email', __('form-login.email')) }}
-        {{ $errors->first('email', '<span class="label label-important">:message</span></p>') }}
-        {{ Form::email('email') }}
+        <span class="input-large uneditable-input">{{ $email }}</span>
+<!--        {{ $errors->first('email', '<span class="label label-important">:message</span></p>') }}
+        {{ Form::email('email') }}-->
         
         {{ Form::label('password', __('form-login.password')) }}
         {{ $errors->first('password', '<span class="label label-important">:message</span></p>') }}

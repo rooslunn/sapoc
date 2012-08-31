@@ -68,7 +68,7 @@ CREATE TABLE `users` (
   `phone_1` varchar(32) DEFAULT NULL,
   `phone_2` varchar(32) DEFAULT NULL,
   `contact_person` varchar(64) DEFAULT NULL,
-  `active` tinyint(1) NOT NULL,
+  `code` varchar(200) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -94,4 +94,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-08-30 11:29:17
+-- Dump completed on 2012-08-31 14:27:22

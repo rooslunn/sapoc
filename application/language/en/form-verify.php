@@ -5,5 +5,9 @@ return array(
     'email'        => 'Please enter your e-mail',
     'btn-verify'   => 'Verify me',
     'email-subject'=> 'SAPOC verification',
-    'success'        => 'Verification message was sent',
+    'success'      => 'Verification message was sent',
+    'fail'         => 'Verification failed',
+    'linkname'     => 'Verification code',
+    'cheater'      => 'Hello, Cheater!',
+    'cheater-url'  => 'http://nah.ru/',
 );

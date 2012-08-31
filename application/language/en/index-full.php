@@ -1,6 +1,6 @@
 <?php
 
 return array(
-    'logged-as' => 'Logged as',
+    'logged-as' => '',
     'logout'    => 'Log out',
 );

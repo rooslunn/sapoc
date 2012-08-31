@@ -185,5 +185,6 @@ return array(
 		'View'       	=> 'Laravel\\View',
 	),
 
-    'email_salt'    => 'tgO})}?\3.ST9C\-woLic9r}', // email verification salt
+    'hash_salt'    => 'tgO})}?\3.ST9C\-woLic9r}', // email verification salt
+    'hash_algo'     => 'sha256',
 );

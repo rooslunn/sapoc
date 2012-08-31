@@ -27,7 +27,7 @@ class Create_Users {
             $table->string('phone_2', 32)->nullable();
             $table->string('contact_person', 64)->nullable();
             
-            $table->boolean('active');
+            $table->string('code');
             $table->timestamps();
         });
         

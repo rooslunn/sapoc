@@ -1,8 +1,8 @@
 @layout('sapoc.layout.main')
 
 @section('login')
-    <li><a href="#">{{ __('index-full.logged-as') . ' ' . Auth::user()->email }}</a></li>
-    <li><a href="#">{{ __('index-full.logout') }}</a></li>
+    <li><a href="#">{{ __('index-full.logged-as') . ' ' . $user }}</a></li>
+    <li>{{ HTML::link('logout', __('index-full.logout')) }}</li>
 @endsection
 
 @section('locked_menu')

@@ -32,18 +32,39 @@
 |
 */
 
+Log::info(sprintf("%s %s %s Seg[%d]: %s %s %s",
+    Request::method(),
+    URI::full(),
+    Request::ip(),
+    Router::$segments,
+    URI::segment(1, '-'),
+    URI::segment(2, '-'),
+    URI::segment(3, '-')
+));
+
 // start page
 Route::get('/', 'sapoc@index');
 
-// auth
+// login/logout
 Route::get('login', 'sapoc@login');
 Route::post('login', 'sapoc@auth');
+Route::get('logout', function() {
+    Auth::logout();
+    return Redirect::to('/');
+});
 
 // register
 Route::get('verify', 'sapoc@verify');
 Route::post('verify', 'sapoc@send_verification');
+
 Route::get('register', 'sapoc@register');
 Route::post('register', 'sapoc@create_user');
+
+
+Route::get('logout', function() {
+    Auth::logout();
+    return Redirect::to('/');
+});
 
 /*
 Route::get('/', function()

@@ -41,8 +41,13 @@
                 </ul>
                 <ul class="nav pull-right">
                     @section('login')
-                    <li>{{ HTML::link_to_action('sapoc@login', 'Sign in') }}</li>
-                    <li>{{ HTML::link_to_action('sapoc@verify', 'Register') }}</li>
+                    @if (Auth::guest())
+                        <li>{{ HTML::link_to_action('sapoc@login', __('form-main.login')) }}</li>
+                        <li>{{ HTML::link_to_action('sapoc@verify', __('form-main.register')) }}</li>
+                    @else
+                        <li><a href="#">{{ __('index-full.logged-as') . ' ' . Auth::user()->email }}</a></li>
+                        <li>{{ HTML::link('logout', __('index-full.logout')) }}</li>
+                    @endif    
                     @yield_section
                 </ul>
             </div><!--/.nav-collapse -->
@@ -67,7 +72,14 @@
                 <li><a href="#">Add</a></li>
                 <li><a href="#">Find</a></li>
                 @yield_section
-                @yield('locked_menu')
+                
+                @if (Auth::guest())
+                    @yield('locked_menu')
+                @else
+                    <li class="nav-header">User</li>
+                    <li><a href="#">Account</a></li>
+                    <li><a href="#">Bids</a></li>
+                @endif
             </ul>
             </div><!--/.well -->
         </div><!--/span2-->
