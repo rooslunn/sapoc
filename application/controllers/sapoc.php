@@ -95,8 +95,9 @@ class Sapoc_Controller extends Base_Controller {
         	$user_data['password'] = Hash::make($user_data['password']);
         	$user = new User($user_data);
         	$user->save();
-        	return View::make('sapoc.pages.index-full')
-        	        ->with('user', $user_data['email']);
+        	return $this->action_login();
+//        	return View::make('sapoc.pages.index-full')
+//        	        ->with('user', $user_data['email']);
     	}
 	}
 	

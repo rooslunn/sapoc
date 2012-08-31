@@ -25,7 +25,7 @@
         <!-- submit button -->
         <span class="help-block"><a href="#"><small>{{ __('form-login.forgot') }}</small></a></span>
         {{ Form::submit(__('form-login.btn-login'), array('class' => 'btn btn-primary')) }}
-        {{ HTML::link_to_action('sapoc@register', __('form-login.register'), array('class' => 'btn')) }}
+        {{ HTML::link_to_action('sapoc@verify', __('form-login.register'), array('class' => 'btn')) }}
     {{ Form::close() }}
     
 @endsection
