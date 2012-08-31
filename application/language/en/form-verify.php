@@ -7,7 +7,7 @@ return array(
     'email-subject'=> 'SAPOC verification',
     'success'      => 'Verification message was sent',
     'fail'         => 'Verification failed',
-    'linkname'     => 'Verification code',
+    'linkname'     => 'Verification code (test)',
     'cheater'      => 'Hello, Cheater!',
     'cheater-url'  => 'http://nah.ru/',
 );
