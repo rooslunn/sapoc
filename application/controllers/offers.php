@@ -11,11 +11,17 @@ class Offers_Controller extends Base_Controller {
             'from_date',
             'to_date',
             '-',
-            'from_country',
+            'from_country' => array(
+                'data-provide' => 'typeahead', 
+                'data-source' => '["Ukraine","Russia","Moldova"]'
+                ),
             'from_state',
             'from_town',
             '-',  
-            'to_country',
+            'to_country'   => array(
+                'data-provide' => 'typeahead', 
+                'data-source' => '["Ukraine","Russia","Moldova"]'
+                ),
             'to_state',  
             'to_town',
             '-',    

@@ -1,30 +1,37 @@
 @layout('sapoc.layout.main')
 
 @section('content')
+    
     <script type="text/javascript">
         var error_div_ids = [];
     </script>
+    
     {{ Form::open('offers/new', 'post', array('class' => 'form-horizontal')) }}
+        
+        <fieldset>
         
         <!-- CSRF -->
         {{ Form::token() }}
         
         {{ Form::hidden('offer_type', $offer_type) }}
-        @if (!Auth::guest())
+        @if (! Auth::guest())
             {{ Form::hidden('user_id', Auth::user()->id) }}
         @endif    
         
-<!--        <legend>{{ __('offers-new.legend') }}</legend>-->
         <legend>{{ $legend }}</legend>
         
-        @foreach ($fields as $field)
+        @foreach ($fields as $field => $opts)
+            @if (! is_array($opts))
+                <?php $field = $opts; $opts = array(); ?>
+            @endif
+            
             @if ($field === '-')
                 <legend></legend>        
             @else
                 <div class="control-group" id="{{ $field }}">
                 {{ Form::label($field, __('offers-new.'.$field), array('class'=>'control-label')) }}
                     <div class="controls">
-                    {{ Form::text($field, Input::old($field)) }}
+                    {{ Form::text($field, Input::old($field), $opts) }}
                     @if ($errors->has($field))
                         <script type="text/javascript">
                             error_div_ids[error_div_ids.length] = {{'"'."$field".'"'}};
@@ -43,6 +50,8 @@
             </div>
         </div>
 
+        </fieldset>
+        
     {{ Form::close() }}
     
     <script type="text/javascript">
