@@ -5,6 +5,7 @@ class Base_Controller extends Controller {
 	public function __construct()
 	{
 	    //Assets
+	    Asset::add('sapoc-js', 'js/sapoc.js');
 	    Asset::add('jquery', 'js/jquery-1.7.2.min.js');
 	    Asset::add('bootstrap-js', 'js/bootstrap.min.js', 'jquery');
 	    Asset::add('bootstrap-css', 'css/bootstrap.min.css');

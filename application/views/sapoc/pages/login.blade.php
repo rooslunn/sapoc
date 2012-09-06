@@ -1,7 +1,7 @@
 @layout('sapoc.layout.main')
 
 @section('content')
-    {{ Form::open('login') }}
+    {{ Form::open('login', 'post', array('class' => 'form-horizontal')) }}
         
         <!-- check for login errors flash var -->
         @if (Session::has('login_errors'))
@@ -14,18 +14,36 @@
         <!-- CSRF -->
         {{ Form::token() }}
 
+        <legend>{{ __('form-login.legend') }}</legend>
+        
         <!-- username field -->
-        {{ Form::label('email', __('form-login.email')) }}
-        {{ Form::email('email') }}
+        <div class="control-group">
+            {{ Form::label('email', __('form-login.email'), array('class'=>'control-label')) }}
+            <div class="controls">
+                {{ Form::email('email') }}
+                <span class="help-inline">
+                    {{ HTML::link_to_action('sapoc@verify', __('form-login.register')) }}
+                </span>
+            </div>
+        </div>
         
         <!-- password field -->
-        {{ Form::label('password', __('form-login.password')) }}
-        {{ Form::password('password') }}
+        <div class="control-group">
+            {{ Form::label('password', __('form-login.password'), array('class'=>'control-label')) }}
+            <div class="controls">
+                {{ Form::password('password') }}
+                <span class="help-inline">
+                    <a href="#">{{ __('form-login.forgot') }}</a>
+                </span>
+            </div>
+        </div>
         
         <!-- submit button -->
-        <span class="help-block"><a href="#"><small>{{ __('form-login.forgot') }}</small></a></span>
-        {{ Form::submit(__('form-login.btn-login'), array('class' => 'btn btn-primary')) }}
-        {{ HTML::link_to_action('sapoc@verify', __('form-login.register'), array('class' => 'btn')) }}
+        <div class="control-group">
+            <div class="controls">
+                {{ Form::submit(__('form-login.btn-login'), array('class' => 'btn btn-primary')) }}
+            </div>
+        </div>
     {{ Form::close() }}
     
 @endsection

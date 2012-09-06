@@ -66,10 +66,10 @@
                 @section('menu')
                 <li class="nav-header">Freight</li>
                 <!-- li class="active"><a href="#">Link</a></li-->
-                <li><a href="#">Add</a></li>
+                <li>{{  HTML::link_to_action('offers@new_freight', 'Add') }}</li>
                 <li><a href="#">Find</a></li>
                 <li class="nav-header">Transport</li>
-                <li><a href="#">Add</a></li>
+                <li>{{  HTML::link_to_action('offers@new_trans', 'Add') }}</li>
                 <li><a href="#">Find</a></li>
                 @yield_section
                 

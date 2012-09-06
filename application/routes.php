@@ -66,6 +66,11 @@ Route::get('logout', function() {
     return Redirect::to('/');
 });
 
+// new offer
+Route::get('offers/new_freight', 'offers@new_freight');
+Route::get('offers/new_trans', 'offers@new_trans');
+Route::post('offers/new', 'offers@new_post');
+
 /*
 Route::get('/', function()
 {

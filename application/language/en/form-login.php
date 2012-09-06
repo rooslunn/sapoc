@@ -1,6 +1,7 @@
 <?php
 
 return array(
+    'legend'    => 'Sign In',
     'email'     => 'E-mail',
     'password'  => 'Password',
     'forgot'    => 'Forgot your password?',

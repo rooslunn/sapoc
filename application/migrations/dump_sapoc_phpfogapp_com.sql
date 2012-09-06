@@ -44,8 +44,76 @@ CREATE TABLE `laravel_migrations` (
 
 LOCK TABLES `laravel_migrations` WRITE;
 /*!40000 ALTER TABLE `laravel_migrations` DISABLE KEYS */;
-INSERT INTO `laravel_migrations` VALUES ('application','2012_08_22_180633_create_users',1);
+INSERT INTO `laravel_migrations` VALUES ('application','2012_08_22_180633_create_users',1),('application','2012_09_05_083439_create_offers',1),('application','2012_09_06_044935_create_session_table',2);
 /*!40000 ALTER TABLE `laravel_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `offers`
+--
+
+DROP TABLE IF EXISTS `offers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `offers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `offer_type` int(11) NOT NULL,
+  `from_date` datetime NOT NULL,
+  `from_country` varchar(64) NOT NULL,
+  `from_state` varchar(64) DEFAULT NULL,
+  `from_town` varchar(64) NOT NULL,
+  `to_date` datetime NOT NULL,
+  `to_country` varchar(64) NOT NULL,
+  `to_state` varchar(64) DEFAULT NULL,
+  `to_town` varchar(64) NOT NULL,
+  `auto_type` varchar(64) NOT NULL,
+  `auto_load_type` varchar(64) NOT NULL,
+  `auto_capacity` float NOT NULL,
+  `auto_volume` float DEFAULT NULL,
+  `auto_price` float DEFAULT NULL,
+  `auto_count` int(11) DEFAULT NULL,
+  `auto_license` varchar(64) DEFAULT NULL,
+  `comments` varchar(200) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `offers`
+--
+
+LOCK TABLES `offers` WRITE;
+/*!40000 ALTER TABLE `offers` DISABLE KEYS */;
+INSERT INTO `offers` VALUES (1,1,0,'2012-02-12 00:00:00','ukraine','','odessa','2012-02-13 00:00:00','ukraine','','odessa','tent','tent',1,0,0,0,'','','2012-09-06 04:34:03','2012-09-06 04:34:03');
+/*!40000 ALTER TABLE `offers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessions` (
+  `id` varchar(40) NOT NULL,
+  `last_activity` int(11) NOT NULL,
+  `data` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+INSERT INTO `sessions` VALUES ('GyuXvMNBpHup7VzeQdNwfCW5FYbN29ecCaKZ8WwG',1346909313,'a:3:{s:5:\":new:\";a:0:{}s:5:\":old:\";a:0:{}s:10:\"csrf_token\";s:40:\"kuFTYgXGEhaP3YTn5MjPpSaVyZqU9iA2KWu3jBHU\";}');
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -73,7 +141,7 @@ CREATE TABLE `users` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,6 +150,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'rkladko@gmail.com','$2a$08$UE8yRXlMQzlLeFloanhGdOTfhIuPtBFLCTmVU0n2AqEp8e6aWU/B6','','','','','','','',NULL,'','36314ce4b50346d515e65e78a1cb7b304092cf6066fa611946e579cd6e6d206a','2012-09-06 04:31:07','2012-09-06 04:31:07');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -94,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-08-31 14:27:22
+-- Dump completed on 2012-09-06  8:31:01
