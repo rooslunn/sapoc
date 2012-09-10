@@ -8,8 +8,12 @@ class Offers_Controller extends Base_Controller {
     
     private function new_offer($offer_type) {
         $fields = array(
-            'from_date',
-            'to_date',
+            'from_date' => array(
+                'class' => 'date-picker'
+            ),
+            'to_date' => array(
+                'class' => 'date-picker'
+            ),
             '-',
             'from_country' => array(
                 'data-provide' => 'typeahead', 

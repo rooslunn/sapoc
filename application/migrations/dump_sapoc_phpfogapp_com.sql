@@ -112,7 +112,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('GyuXvMNBpHup7VzeQdNwfCW5FYbN29ecCaKZ8WwG',1346909313,'a:3:{s:5:\":new:\";a:0:{}s:5:\":old:\";a:0:{}s:10:\"csrf_token\";s:40:\"kuFTYgXGEhaP3YTn5MjPpSaVyZqU9iA2KWu3jBHU\";}');
+INSERT INTO `sessions` VALUES ('djuK8ffttXghnU5pg2vkXmTFSvdbYbiTXQhJSYv3',1346923244,'a:3:{s:5:\":new:\";a:0:{}s:5:\":old:\";a:0:{}s:10:\"csrf_token\";s:40:\"qxj0BgXlrM7W4WOAmXrKFex2udyczBb8rO6gijuE\";}');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-09-06  8:31:01
+-- Dump completed on 2012-09-06 12:28:25

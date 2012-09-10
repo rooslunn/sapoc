@@ -59,6 +59,7 @@
         for (var i = 0, item; item = error_div_ids[i++];) {
             document.getElementById(item).setAttribute("class", "control-group error");
         }
+        
     </script>
 
 @endsection

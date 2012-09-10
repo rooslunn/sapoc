@@ -93,5 +93,30 @@
 </div><!--/container-->
     
 {{ Asset::scripts() }}
+
+<!--Datepickers-->
+<script>
+    $(function() {
+        $(".date-picker").each(
+            function() {
+                var date_format = 'DD-MM-YYYY';
+                var dp = $(this).datepicker({
+                    format: date_format.toLowerCase(),
+                    weekStart: 1
+                });
+                dp.on('changeDate', 
+                    function(e) {
+                        $(this).datepicker('hide');
+                    }
+                );
+                if (!dp.val()) {
+                    dp.val(moment().format(date_format));
+                    dp.datepicker('update');
+                }
+            }
+        );
+    });
+</script>
+
 </body>
 </html>
