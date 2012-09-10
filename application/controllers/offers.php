@@ -97,7 +97,8 @@ class Offers_Controller extends Base_Controller {
         
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
-            return Redirect::to('offers/new')
+            $page = $input['offer_type'] == 1 ? 'offers/new_freight' : 'offers/new_trans';
+            return Redirect::to($page)
                     ->with_errors($v)
                     ->with_input();
         } else {
