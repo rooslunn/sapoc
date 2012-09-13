@@ -2,7 +2,7 @@
 
 return array(
     'legend_freight'  => 'New Freight',
-    'legend_trans'  => 'New Transport',
+    'legend_trans'    => 'New Transport',
     
     'from_date'    => 'Date From',
     'from_country' => 'From Country',
@@ -18,6 +18,7 @@ return array(
     'auto_capacity'  => 'Capacity',
     'auto_volume'    => 'Body volume',
     'auto_price'     => 'Price',
+    'auto_pay_type'  => 'Pay Type',
     'auto_count'     => 'Count',
     'auto_license'   => 'Req. License',
     'comments'       => 'Comments',
@@ -26,5 +27,5 @@ return array(
     'btn-cancel'     => 'Cancel',
     
     'save-success'   => 'Offer saved successfully',
-    
+      
 );

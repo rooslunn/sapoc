@@ -85,6 +85,10 @@
             </div><!--/.well -->
         </div><!--/span2-->
         
+        <!-- Errors init-->
+        <script type="text/javascript">
+            var error_div_ids = [];
+        </script>
         <!--/span10 -->
         <div class="span10">
             @yield('content')

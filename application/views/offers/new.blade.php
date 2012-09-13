@@ -6,7 +6,7 @@
         var error_div_ids = [];
     </script>
     
-    {{ Form::open('offers/new', 'post', array('class' => 'form-horizontal')) }}
+    {{ Form::open('offers/new_post', 'post', array('class' => 'form-horizontal')) }}
         
         <fieldset>
         
@@ -31,7 +31,20 @@
                 <div class="control-group" id="{{ $field }}">
                 {{ Form::label($field, __('offers-new.'.$field), array('class'=>'control-label')) }}
                     <div class="controls">
-                    {{ Form::text($field, Input::old($field), $opts) }}
+                    
+<!--                    Field type: text, select etc.-->
+                    @if (key_exists('data-select', $opts))
+                        {{ Form::select($field, $opts['data-source'], Input::old($field)) }} 
+<!--                        <select>
+                        @foreach (array_values($opts['data-source']) as $sel_option)
+                            <option>{{ $sel_option }}</option>
+                        @endforeach
+                        </select>-->
+                    @else
+                        {{ Form::text($field, Input::old($field), $opts) }}
+                    @endif
+                    
+<!--                    Validation errors-->
                     @if ($errors->has($field))
                         <script type="text/javascript">
                             error_div_ids[error_div_ids.length] = {{'"'."$field".'"'}};

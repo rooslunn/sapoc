@@ -16,6 +16,14 @@ class Base_Controller extends Controller {
 	    Asset::add('bootstrap-css-responsive', 'css/bootstrap-responsive.min.css', 'bootstrap-css');
 	    Asset::add('datepicker-css', 'css/datepicker.css', 'bootstrap-css');
 	    
+	    //Form macros
+	    Form::macro('date', function($name) {
+	        return sprintf(
+	            '<input type="text" name="%s" id="%s" class="%s">',
+	            $name, Config::get('application.date_class_js')
+	        );
+	    });
+	    
 	    parent::__construct();
 	}
 

@@ -27,15 +27,23 @@ class Create_Offers {
             $table->string('to_state', 64)->nullable();
             $table->string('to_town', 64);
             
-            $table->string('auto_type', 64);
+            $table->integer('auto_type');
             $table->float('auto_capacity');
-            $table->string('auto_load_type', 64)->nullable();
+            $table->integer('auto_load_type')->nullable();
             $table->float('auto_volume')->nullable();
             $table->float('auto_price')->nullable();
+            $table->integer('auto_pay_type')->nullable();
             $table->integer('auto_count')->nullable();
+            $table->string('auto_periodicity', 64)->nullable();
             $table->string('auto_license', 64)->nullable();
             
             $table->string('comments')->nullable();
+            
+            $table->string('contact_company', 64)->nullable();
+            $table->string('contact_person', 64)->nullable();
+            $table->string('contact_phone', 64)->nullable();
+            $table->string('contact_phone2', 64)->nullable();
+            $table->string('contact_email', 64)->nullable();
             
             $table->timestamps();
         });

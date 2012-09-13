@@ -125,7 +125,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Europe/Kiev',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -185,6 +185,11 @@ return array(
 		'View'       	=> 'Laravel\\View',
 	),
 
+    // SAPOC config
     'hash_salt'    => 'tgO})}?\3.ST9C\-woLic9r}', // email verification salt
     'hash_algo'     => 'sha256',
+    
+    'date_input_js'  => 'dd-mm-yyyy',
+    'date_input_php' => 'd-m-Y',
+    'date_class_js'  => 'date-picker',
 );

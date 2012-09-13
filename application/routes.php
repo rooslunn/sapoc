@@ -60,17 +60,17 @@ Route::post('verify', 'sapoc@send_verification');
 Route::get('register', 'sapoc@register');
 Route::post('register', 'sapoc@create_user');
 
-
-Route::get('logout', function() {
-    Auth::logout();
-    return Redirect::to('/');
-});
-
 // new offer
 Route::get('offers/new_freight', 'offers@new_freight');
 Route::get('offers/new_trans', 'offers@new_trans');
-Route::post('offers/new', 'offers@new_post');
+Route::post('offers/new_post', 'offers@new_post');
 
+// search
+Route::get('search/freight', 'search@freight');
+Route::post('search/freight', 'search@freight');
+
+// test
+Route::get('search/test', 'search@test');
 /*
 Route::get('/', function()
 {
