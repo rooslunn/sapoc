@@ -66,8 +66,10 @@ Route::get('offers/new_trans', 'offers@new_trans');
 Route::post('offers/new_post', 'offers@new_post');
 
 // search
-Route::get('search/freight', 'search@freight');
-Route::post('search/freight', 'search@freight');
+Route::get('search/freight' , 'search@make');
+Route::post('search/freight', 'search@make');
+Route::get('search/trans'   , 'search@make');
+Route::post('search/trans'  , 'search@make');
 
 // test
 Route::get('search/test', 'search@test');

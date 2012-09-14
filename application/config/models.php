@@ -2,6 +2,7 @@
 
 return array(
     'search' => array(
+        'offer_type'    => '{"type":"hidden"}',
         'from_country'  => '{"type":"text"}',
         'from_district' => '{"type":"text"}',
         '1' => '{"type":"legend"}',

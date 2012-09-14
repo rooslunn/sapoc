@@ -60,8 +60,6 @@ Laravel\Autoloader::$aliases = $aliases;
 
 Autoloader::map(array(
 	'Base_Controller' => path('app').'controllers/base.php',
-	// Sapoc
-//	'Ref' => path('app').'models/ref.php',
 ));
 
 /*

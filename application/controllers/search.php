@@ -2,21 +2,45 @@
 
 class Search_Controller extends Base_Controller {
 
-    public $restful = true;
+    const model_name = 'models.search';
+    const table_view = 'forms.tableset';
+    const form_view  = 'forms.fieldset';
     
-    public function get_freight() {
-        $fields = RKFieldSet::from_model('models.search');
-//        var_dump($fields);
-        return View::make('forms.fieldset', array(
+    public $restful = true;
+    private $offer;
+    
+    public function __construct() {
+        $this->offer = Config::get('search.'.URI::segment(2));
+        Log::info(print_r($this->offer, true));
+        parent::__construct();
+    }
+    
+    private function offer_type() {
+        return $this->offer['offer_type'];
+    }
+    
+    private function search_columns() {
+        return json_decode($this->offer['search_columns']);
+    }
+    
+    private function view_columns() {
+        return json_decode($this->offer['view_columns']);
+    }
+    
+    public function get_make() {
+        $fields = RKFieldSet::from_model(self::model_name);
+        $fields->get('offer_type')
+            ->value($this->offer_type());
+        return View::make(self::form_view, array(
             'fields' => $fields->get(),
-            'action' => 'search/freight',
+            'action' => URI::current(),
             'title'  => 'Search',
             'labels' => 'search',
         ));
     }
     
-    public function post_freight() {
-        $fields = RKFieldSet::from_model('models.search');
+    public function post_make() {
+        $fields = RKFieldSet::from_model(self::model_name);
         $inputs = $fields->inputs();
         $rules = $fields->rules();
         $validator = Validator::make($inputs, $rules);
@@ -24,17 +48,9 @@ class Search_Controller extends Base_Controller {
             echo 'Fail View';
         } else {
             $inputs = array_filter($inputs); // only non empty
-            $columns_for_search = array(
-                'auto_type', 'from_date', 'to_date', 'from_country', 'to_country',
-                'from_town', 'to_town', 'comments', 'auto_price'
-            );
-            $search_result = Offer::search($inputs, $columns_for_search);
-            
-            $columns_for_view = array(
-                'auto_type_name', 'load_period', 'route', 'freight', 'price', 'contacts'
-            );
-            return View::make('forms.tableset', array(
-                'heads'  => $columns_for_view,
+            $search_result = Offer::search($inputs, $this->search_columns());
+            return View::make(self::table_view, array(
+                'heads'  => $this->view_columns(),
                 'rows'   => $search_result,
                 'title'  => 'Search result',
                 'labels' => 'search'

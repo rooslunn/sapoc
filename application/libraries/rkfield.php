@@ -8,10 +8,10 @@ class RKField {
         $this->data['type'] = $type;
     }
     
-//    public function __set ($name, $value) {
-//        $this->data[$name] = $value;
-//        return $this;
-//    }
+    public function __set ($name, $value) {
+        $this->data[$name] = $value;
+        return $this;
+    }
     
     public function __get($name) {
         if (array_key_exists($name, $this->data)) {

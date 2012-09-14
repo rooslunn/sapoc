@@ -70,7 +70,7 @@
                 <li>{{  HTML::link('search/freight', 'Search') }}</li>
                 <li class="nav-header">Transport</li>
                 <li>{{  HTML::link_to_action('offers@new_trans', 'Add') }}</li>
-                <li>{{  HTML::link('search/test', 'Test') }}</li>
+                <li>{{  HTML::link('search/trans', 'Search') }}</li>
 <!--                <li><a href="#">Find</a></li>-->
                 @yield_section
                 

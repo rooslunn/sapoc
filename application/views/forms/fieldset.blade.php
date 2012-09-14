@@ -11,6 +11,8 @@
             <?php $type = $field->type; ?>
             @if ($type == 'legend')
                 <legend></legend>
+            @elseif ($type == 'hidden')
+                {{ Form::hidden($field->name, $field->value) }}
             @else
                 <div class="control-group" id="{{ $field->name }}">
                 {{ Form::label($field->name, __($labels.'.'.$field->name), array('class'=>'control-label')) }}

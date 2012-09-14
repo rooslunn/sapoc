@@ -17,6 +17,7 @@ return array(
     'load_period'    => 'Load Date',
     'route'          => 'Route',
     'freight'        => 'Freight',
+    'trans'          => 'Transport',
     'price'          => 'Price',
     'contacts'       => 'Contacts',
 );
