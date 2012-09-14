@@ -11,4 +11,12 @@ return array(
     'weight_to'     => 'Weight To',
     'btn-submit'    => 'Search',
     'btn-cancel'    => 'Cancel',
+    
+    // Search result
+    'auto_type_name' => 'Auto Type',
+    'load_period'    => 'Load Date',
+    'route'          => 'Route',
+    'freight'        => 'Freight',
+    'price'          => 'Price',
+    'contacts'       => 'Contacts',
 );

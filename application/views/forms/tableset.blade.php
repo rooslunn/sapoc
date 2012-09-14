@@ -7,7 +7,7 @@
     <thead>
         <tr>
         @foreach ($heads as $head)
-            <th>{{ $head }}</th>
+            <th>{{ __($labels.'.'.$head) }}</th>
         @endforeach
         </tr>
     </thead>

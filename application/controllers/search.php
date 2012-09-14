@@ -24,11 +24,18 @@ class Search_Controller extends Base_Controller {
             echo 'Fail View';
         } else {
             $inputs = array_filter($inputs); // only non empty
-            $search_result = Offer::search($inputs);
-//            var_dump($search_result);
+            $columns_for_search = array(
+                'auto_type', 'from_date', 'to_date', 'from_country', 'to_country',
+                'from_town', 'to_town', 'comments', 'auto_price'
+            );
+            $search_result = Offer::search($inputs, $columns_for_search);
+            
+            $columns_for_view = array(
+                'auto_type_name', 'load_period', 'route', 'freight', 'price', 'contacts'
+            );
             return View::make('forms.tableset', array(
-                'heads'  => $search_result['heads'],
-                'rows'   => $search_result['rows'],
+                'heads'  => $columns_for_view,
+                'rows'   => $search_result,
                 'title'  => 'Search result',
                 'labels' => 'search'
             ));
