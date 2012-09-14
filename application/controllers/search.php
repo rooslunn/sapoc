@@ -7,10 +7,11 @@ class Search_Controller extends Base_Controller {
     const form_view  = 'forms.fieldset';
     
     public $restful = true;
-    private $offer;
+    private $offer, $offer_name;
     
     public function __construct() {
-        $this->offer = Config::get('search.'.URI::segment(2));
+        $this->offer_name = URI::segment(2);
+        $this->offer = Config::get('search.'.$this->offer_name);
         Log::info(print_r($this->offer, true));
         parent::__construct();
     }
@@ -34,7 +35,7 @@ class Search_Controller extends Base_Controller {
         return View::make(self::form_view, array(
             'fields' => $fields->get(),
             'action' => URI::current(),
-            'title'  => 'Search',
+            'title'  => 'Search '.$this->offer_name,
             'labels' => 'search',
         ));
     }

@@ -5,6 +5,7 @@
         <fieldset>
         
         <legend>{{ $title }}</legend>
+        <div class="control-group"></div>
         
         <!-- Fields-->
         @foreach ($fields as $field)
