@@ -14,6 +14,7 @@ class Create_Refs {
 		    $table->integer('ref_type')->index();
 		    $table->integer('parent_ref_id')->default(0)->index();
 		    $table->string('ref_name', 64);
+		    $table->string('ref_comparator', 8)->default('=');
 		    $table->timestamps();
 		});
 		
@@ -35,9 +36,15 @@ class Create_Refs {
             $ref_type = $data['ref_type'];
             $values = explode(',', $data['values']);
             foreach ($values as $ref_name) {
+            	$ref_name_parts = explode('|', $ref_name);
+            	if (count($ref_name_parts) > 1)
+            		$comparator = $ref_name_parts[1];
+            	else
+            		$comparator = '=';
                 DB::table('refs')->insert(array(
-                    'ref_type' => $ref_type,
-                    'ref_name' => $ref_name
+                    'ref_type' 		 => $ref_type,
+                    'ref_name' 		 => $ref_name_parts[0],
+                    'ref_comparator' => $comparator
                 ));
             }
         }

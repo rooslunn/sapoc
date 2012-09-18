@@ -109,6 +109,7 @@ CREATE TABLE `refs` (
   `ref_type` int(11) NOT NULL,
   `parent_ref_id` int(11) NOT NULL DEFAULT '0',
   `ref_name` varchar(64) NOT NULL,
+  `ref_comparator` varchar(8) NOT NULL DEFAULT '=',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`ref_id`),
@@ -123,7 +124,7 @@ CREATE TABLE `refs` (
 
 LOCK TABLES `refs` WRITE;
 /*!40000 ALTER TABLE `refs` DISABLE KEYS */;
-INSERT INTO `refs` VALUES (1,1,0,'any','0000-00-00 00:00:00','0000-00-00 00:00:00'),(2,1,0,'tent','0000-00-00 00:00:00','0000-00-00 00:00:00'),(3,1,0,'container','0000-00-00 00:00:00','0000-00-00 00:00:00'),(4,2,0,'up','0000-00-00 00:00:00','0000-00-00 00:00:00'),(5,2,0,'back','0000-00-00 00:00:00','0000-00-00 00:00:00'),(6,2,0,'up and back','0000-00-00 00:00:00','0000-00-00 00:00:00'),(7,3,0,'cash','0000-00-00 00:00:00','0000-00-00 00:00:00'),(8,3,0,'wire','0000-00-00 00:00:00','0000-00-00 00:00:00'),(9,3,0,'ach','0000-00-00 00:00:00','0000-00-00 00:00:00');
+INSERT INTO `refs` VALUES (1,1,0,'any','>=','0000-00-00 00:00:00','0000-00-00 00:00:00'),(2,1,0,'tent','=','0000-00-00 00:00:00','0000-00-00 00:00:00'),(3,1,0,'container','=','0000-00-00 00:00:00','0000-00-00 00:00:00'),(4,2,0,'up','=','0000-00-00 00:00:00','0000-00-00 00:00:00'),(5,2,0,'back','=','0000-00-00 00:00:00','0000-00-00 00:00:00'),(6,2,0,'up and back','=','0000-00-00 00:00:00','0000-00-00 00:00:00'),(7,3,0,'cash','=','0000-00-00 00:00:00','0000-00-00 00:00:00'),(8,3,0,'wire','=','0000-00-00 00:00:00','0000-00-00 00:00:00'),(9,3,0,'ach','=','0000-00-00 00:00:00','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `refs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +177,7 @@ CREATE TABLE `users` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,6 +186,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'rkladko@gmail.com','$2a$08$QXdoMzJsWlVZa1FjTHRJSe8HVYllinMVJ8Uxia.Jn2eMSo6gsAweu',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','0000-00-00 00:00:00','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -197,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-09-14 12:53:47
+-- Dump completed on 2012-09-18 12:15:20

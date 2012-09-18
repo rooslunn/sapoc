@@ -7,7 +7,7 @@ class Offer extends Eloquent {
     public static function search($inputs, $columns) {
         $query = new static;
         foreach($inputs as $field => $value) {
-            $comparator = Ref::get_comparator($value);
+            $comparator = Ref::comparator_by_id($value);
             $query = $query->where($field, $comparator, $value);
         }
         $rows = $query->get($columns);
@@ -15,10 +15,7 @@ class Offer extends Eloquent {
     }
     
     public function get_auto_type_name() {
-//        $ref = Ref::where_ref_id($this->get_attribute('auto_type'))
-//                        ->get(array('ref_name'));
-//        return $ref[0]->ref_name;
-        return Ref::auto_type_name($this->get_attribute('auto_type'));
+        return Ref::ref_name_by_id($this->get_attribute('auto_type'));
     }
     
     public function get_load_period() {

@@ -16,21 +16,13 @@ class Ref extends Eloquent {
         return $ds;
     }
     
-    public static function get_comparator($for_id) {
-        $ref = static::where_ref_id($for_id)->first(array('ref_name'));
-//        Log::info(print_r($ref, true));
-//        return '=';
-        $parts = explode(':', $ref->ref_name);
-        if (count($parts) > 1)
-            return $parts[1];
-        else 
-            return '=';
+    public static function comparator_by_id($for_id) {
+        $ref = static::where_ref_id($for_id)->first(array('ref_comparator'));
+        return $ref->ref_comparator;
     }
     
-    public static function auto_type_name($for_id) {
+    public static function ref_name_by_id($for_id) {
         $ref = Ref::where_ref_id($for_id)->get(array('ref_name'));
-        $ref_name = explode(':', $ref[0]->ref_name);
-        return $ref_name[0];
-        
+        return $ref[0]->ref_name;
     }
 }

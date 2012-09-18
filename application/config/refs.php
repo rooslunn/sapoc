@@ -3,7 +3,7 @@
 return array(
     'auto_type' => array(
         'ref_type' => 1,
-        'values'   => 'any:>=,tent,container'
+        'values'   => 'any|>=,tent,container'
     ),
     
     'auto_load_type' => array(

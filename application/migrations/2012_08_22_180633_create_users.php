@@ -31,23 +31,12 @@ class Create_Users {
             $table->timestamps();
         });
         
-/*
+
         DB::table('users')->insert(array(
             'email'     => 'rkladko@gmail.com',
-            'password'  => Hash::make('0'),
-            'active'    => 1
+            'password'  => Hash::make('123456'),
         ));
-*/
-/*
-        define('NFIXTURES', 100);
-        for ($i = 0; $i < NFIXTURES; $i++) {
-            DB::table('users')->insert(array(
-                'email'     => "user$i@sapoc.ua",
-                'password'  => Hash::make('111111'),
-                'active'    => 1
-            ));
-        }
-*/
+
     }
     
     /**
