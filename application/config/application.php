@@ -192,4 +192,6 @@ return array(
     'date_input_js'  => 'dd-mm-yyyy',
     'date_input_php' => 'd-m-Y',
     'date_class_js'  => 'date-picker',
+    
+    'forms_layout'   => 'layout.form',
 );

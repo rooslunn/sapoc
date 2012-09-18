@@ -12,7 +12,7 @@ class Search_Controller extends Base_Controller {
     public function __construct() {
         $this->offer_name = URI::segment(2);
         $this->offer = Config::get('search.'.$this->offer_name);
-        Log::info(print_r($this->offer, true));
+//        Log::info(print_r($this->offer, true));
         parent::__construct();
     }
     
@@ -46,7 +46,7 @@ class Search_Controller extends Base_Controller {
         $rules = $fields->rules();
         $validator = Validator::make($inputs, $rules);
         if ($validator->fails()) {
-            echo 'Fail View';
+            echo 'Search Validator Failed';
         } else {
             $inputs = array_filter($inputs); // only non empty
             $search_result = Offer::search($inputs, $this->search_columns());
@@ -57,6 +57,17 @@ class Search_Controller extends Base_Controller {
                 'labels' => 'search'
             ));
         }
+    }
+    
+    public function get_test() {
+        $fields = RKFieldSet::from_model(self::model_name);
+        $fields1 = $fields->only(array('from_country', 'from_district'));
+        $fields2 = $fields->only(array('to_country', 'to_district'));
+//        var_dump($fields2); return;
+        $view = View::make('forms.fieldset2col', array('title'=>'Title', 'labels'=>'search'))
+                    ->nest('fields1col', 'forms.fieldlist', array('fields' => $fields1))
+                    ->nest('fields2col', 'forms.fieldlist', array('fields' => $fields2));
+        return $view;
     }
  
 }

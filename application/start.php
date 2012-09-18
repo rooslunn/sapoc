@@ -171,3 +171,6 @@ if ( ! Request::cli() and Config::get('session.driver') !== '')
 {
 	Session::load();
 }
+
+// Composer Autoload
+require 'vendor/autoload.php';

@@ -1,0 +1,59 @@
+[
+    {
+        "name": "pdepend/pdepend",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/pdepend/pdepend.git",
+            "reference": "1.1.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/pdepend/pdepend/zipball/1.1.0",
+            "reference": "1.1.0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.3"
+        },
+        "time": "2012-09-12 11:09:19",
+        "bin": [
+            "src/bin/pdepend"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "description": "Official version of pdepend to be handled with Composer"
+    },
+    {
+        "name": "phpmd/phpmd",
+        "version": "1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/phpmd/phpmd.git",
+            "reference": "1.4.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/phpmd/phpmd/zipball/1.4.0",
+            "reference": "1.4.0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "pdepend/pdepend": "*"
+        },
+        "time": "2012-09-07 21:52:24",
+        "bin": [
+            "src/bin/phpmd"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "include-path": [
+            "../../pdepend/pdepend/src/main/php",
+            "src/main/php"
+        ],
+        "description": "Official version of PHPMD handled with Composer."
+    }
+]

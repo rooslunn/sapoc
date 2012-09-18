@@ -61,9 +61,11 @@ Route::get('register', 'sapoc@register');
 Route::post('register', 'sapoc@create_user');
 
 // new offer
-Route::get('offers/new_freight', 'offers@new_freight');
-Route::get('offers/new_trans', 'offers@new_trans');
-Route::post('offers/new_post', 'offers@new_post');
+Route::group(array('before' => 'auth'), function() {
+    Route::get('offers/new_freight', 'offers@new_freight');
+    Route::get('offers/new_trans', 'offers@new_trans');
+    Route::post('offers/new_post', 'offers@new_post');
+});
 
 // search
 Route::get('search/freight' , 'search@make');

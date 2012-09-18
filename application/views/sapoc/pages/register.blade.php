@@ -1,4 +1,4 @@
-@layout('sapoc.layout.main')
+@layout('layout.form')
 
 @section('content')
     {{ Form::open('register') }}

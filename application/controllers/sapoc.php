@@ -24,8 +24,7 @@ class Sapoc_Controller extends Base_Controller {
     	
     	try {
         	if (Auth::attempt($creds)) {
-            	return View::make('sapoc.pages.index-full')
-            	            ->with('user', $email);
+            	return View::make('sapoc.pages.index');
         	} else {
         	   return Redirect::to('login')
         	       ->with('login_errors', true);

@@ -7,16 +7,18 @@ class Offer extends Eloquent {
     public static function search($inputs, $columns) {
         $query = new static;
         foreach($inputs as $field => $value) {
-            $query = $query->where($field, '=', $value);
+            $comparator = Ref::get_comparator($value);
+            $query = $query->where($field, $comparator, $value);
         }
         $rows = $query->get($columns);
         return $rows;
     }
     
     public function get_auto_type_name() {
-        $ref = Ref::where('ref_id', '=', $this->get_attribute('auto_type'))
-                        ->get(array('ref_name'));
-        return $ref[0]->ref_name;
+//        $ref = Ref::where_ref_id($this->get_attribute('auto_type'))
+//                        ->get(array('ref_name'));
+//        return $ref[0]->ref_name;
+        return Ref::auto_type_name($this->get_attribute('auto_type'));
     }
     
     public function get_load_period() {

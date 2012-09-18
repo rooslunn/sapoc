@@ -33,7 +33,7 @@ class RKField {
     }
     
     public function source($name) {
-        $recs = Ref::by_name($name);
+        $recs = Ref::by_model_name($name);
         $this->data['source'] = $recs;
         return $this;
     }

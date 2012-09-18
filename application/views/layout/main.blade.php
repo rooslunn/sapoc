@@ -45,8 +45,8 @@
                         <li>{{ HTML::link_to_action('sapoc@login', __('form-main.login')) }}</li>
                         <li>{{ HTML::link_to_action('sapoc@verify', __('form-main.register')) }}</li>
                     @else
-                        <li><a href="#">{{ __('index-full.logged-as') . ' ' . Auth::user()->email }}</a></li>
-                        <li>{{ HTML::link('logout', __('index-full.logout')) }}</li>
+                        <li><a href="#">{{ __('form-main.logged-as') . ' ' . Auth::user()->email }}</a></li>
+                        <li>{{ HTML::link('logout', __('form-main.logout')) }}</li>
                     @endif    
                     @yield_section
                 </ul>
@@ -58,42 +58,7 @@
 <!--/container -->
 <div class="container-fluid">
     <div class="row-fluid">
-    
-        <!--/span2 -->
-        <div class="span2">
-            <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-                @section('menu')
-                <li class="nav-header">Freight</li>
-                <!-- li class="active"><a href="#">Link</a></li-->
-                <li>{{  HTML::link_to_action('offers@new_freight', 'Add') }}</li>
-                <li>{{  HTML::link('search/freight', 'Search') }}</li>
-                <li class="nav-header">Transport</li>
-                <li>{{  HTML::link_to_action('offers@new_trans', 'Add') }}</li>
-                <li>{{  HTML::link('search/trans', 'Search') }}</li>
-<!--                <li><a href="#">Find</a></li>-->
-                @yield_section
-                
-                @if (Auth::guest())
-                    @yield('locked_menu')
-                @else
-                    <li class="nav-header">User</li>
-                    <li><a href="#">Account</a></li>
-                    <li><a href="#">Bids</a></li>
-                @endif
-            </ul>
-            </div><!--/.well -->
-        </div><!--/span2-->
-        
-        <!-- Errors init-->
-        <script type="text/javascript">
-            var error_div_ids = [];
-        </script>
-        <!--/span10 -->
-        <div class="span10">
-            @yield('content')
-        </div><!--/span10-->
-        
+        @yield('grid')
     </div><!--/row-->
 </div><!--/container-->
     

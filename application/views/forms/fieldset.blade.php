@@ -1,4 +1,4 @@
-@layout('layout.main')
+@layout('layout.form')
 
 @section('content')
     {{ Form::open($action, 'post', array('class' => 'form-horizontal')) }}

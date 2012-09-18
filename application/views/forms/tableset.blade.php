@@ -1,4 +1,4 @@
-@layout('layout.main')
+@layout('layout.form')
 
 @section('content')
     <legend>{{ $title }}</legend>
