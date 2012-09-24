@@ -28,8 +28,8 @@ class User_Controller extends Base_Controller {
             'title'  => __('search.user_bids_title'),
             'labels' => 'search',
             'btns'   => array(
-                'offers/edit' => 'icon-edit',
-                'offers/remove' => 'icon-remove',    
+                'offer/edit' => 'icon-edit',
+                'offer/remove' => 'icon-remove',    
             ),
         ));
 	}	

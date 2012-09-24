@@ -22,7 +22,7 @@
                     <div class="btn-toolbar">
                         <div class="btn-group">
                         @foreach ($btns as $action => $icon)
-                            <a class="btn" href="{{ $action }}"><i class="{{ $icon }}"></i></a>
+                            <a class="btn" href="{{ $action.'/'.$row->id }}"><i class="{{ $icon }}"></i></a>
                         @endforeach
                         </div>
                     </div>
