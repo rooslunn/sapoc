@@ -45,7 +45,7 @@
                         <li>{{ HTML::link_to_action('sapoc@login', __('form-main.login')) }}</li>
                         <li>{{ HTML::link_to_action('sapoc@verify', __('form-main.register')) }}</li>
                     @else
-                        <li><a href="#">{{ __('form-main.logged-as') . ' ' . Auth::user()->email }}</a></li>
+                        <li>{{ HTML::link('user/bids', __('form-main.logged-as').' '.Auth::user()->email) }}</li>
                         <li>{{ HTML::link('logout', __('form-main.logout')) }}</li>
                     @endif    
                     @yield_section

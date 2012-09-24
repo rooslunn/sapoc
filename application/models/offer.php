@@ -36,6 +36,11 @@ class Offer extends Eloquent {
         return $rows;
     }
     
+    public static function all_by_user($user_id, $columns) {
+        $query = new static;
+        return $query->where_user_id($user_id)->get($columns);
+    }
+    
     public function get_auto_type_name() {
         return Ref::ref_name_by_id($this->auto_type);
     }

@@ -22,4 +22,6 @@ return array(
     'trans'          => 'Transport',
     'price'          => 'Price',
     'contacts'       => 'Contacts',
+    
+    'user_bids_title' => 'User bids',
 );

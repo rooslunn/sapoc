@@ -15,7 +15,7 @@
             @if (!Auth::guest())
                 <li class="nav-header">User</li>
                 <li><a href="#">{{ __('form-main.profile') }}</a></li>
-                <li><a href="#">{{ __('form-main.bids') }}</a></li>
+                <li>{{  HTML::link('user/bids', __('form-main.bids')) }}</li>
             @endif
             @yield_section
             

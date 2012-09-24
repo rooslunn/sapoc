@@ -62,6 +62,7 @@ Route::post('register', 'sapoc@create_user');
 
 // new offer
 Route::group(array('before' => 'auth'), function() {
+    Route::get('user/bids', 'user@bids');
     Route::get('offers/new_freight', 'offers@new_freight');
     Route::get('offers/new_trans', 'offers@new_trans');
     Route::post('offers/new_post', 'offers@new_post');
@@ -74,7 +75,7 @@ Route::get('search/trans'   , 'search@make2');
 Route::post('search/trans'  , 'search@make');
 
 // test
-Route::get('search/test', 'search@test');
+// Route::get('search/test', 'search@test');
 /*
 Route::get('/', function()
 {
