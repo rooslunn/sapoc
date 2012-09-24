@@ -40,6 +40,27 @@ class Search_Controller extends Base_Controller {
         ));
     }
     
+    public function get_make2() {
+        $fields = RKFieldSet::from_model(self::model_name);
+        $fields->get('offer_type')
+               ->value($this->offer_type());
+        $fieldsets = array(
+            $fields->only(array(
+                'offer_type', 'from_country', 'from_district', 'legend01', 
+                'auto_type', 'auto_capacity_from', 'auto_capacity_to')),
+            $fields->only(array(
+                'to_country', 'to_district', 'legend02', 
+                'load_date', 'auto_volume_from', 'auto_volume_to')),
+        );
+        $view = View::make('forms.fieldset2col', array(
+            'action'    => URI::current(),
+            'title'     => 'Search '.$this->offer_name, 
+            'labels'    => 'search',
+            'fieldsets' => $fieldsets
+        ));
+        return $view;
+    }
+
     public function post_make() {
         $fields = RKFieldSet::from_model(self::model_name);
         $inputs = $fields->inputs();
@@ -59,15 +80,5 @@ class Search_Controller extends Base_Controller {
         }
     }
     
-    public function get_test() {
-        $fields = RKFieldSet::from_model(self::model_name);
-        $fields1 = $fields->only(array('from_country', 'from_district'));
-        $fields2 = $fields->only(array('to_country', 'to_district'));
-//        var_dump($fields2); return;
-        $view = View::make('forms.fieldset2col', array('title'=>'Title', 'labels'=>'search'))
-                    ->nest('fields1col', 'forms.fieldlist', array('fields' => $fields1))
-                    ->nest('fields2col', 'forms.fieldlist', array('fields' => $fields2));
-        return $view;
-    }
  
 }

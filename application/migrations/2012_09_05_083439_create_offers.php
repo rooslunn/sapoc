@@ -39,11 +39,11 @@ class Create_Offers {
             
             $table->string('comments')->nullable();
             
-            $table->string('contact_company', 64)->nullable();
-            $table->string('contact_person', 64)->nullable();
-            $table->string('contact_phone', 64)->nullable();
-            $table->string('contact_phone2', 64)->nullable();
-            $table->string('contact_email', 64)->nullable();
+//            $table->string('contact_company', 64)->nullable();
+//            $table->string('contact_person', 64)->nullable();
+//            $table->string('contact_phone', 64)->nullable();
+//            $table->string('contact_phone2', 64)->nullable();
+//            $table->string('contact_email', 64)->nullable();
             
             $table->timestamps();
         });

@@ -35,6 +35,7 @@ class Create_Users {
         DB::table('users')->insert(array(
             'email'     => 'rkladko@gmail.com',
             'password'  => Hash::make('123456'),
+            'phone_1'   => '095 102-02-02',
         ));
 
     }

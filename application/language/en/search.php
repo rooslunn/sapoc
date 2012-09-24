@@ -7,8 +7,10 @@ return array(
     'to_district'   => 'To District',
     'auto_type'     => 'Auto Type',
     'load_date'     => 'Load Date',
-    'weight_from'   => 'Weight From',
-    'weight_to'     => 'Weight To',
+    'auto_capacity_from'   => 'Weight From',
+    'auto_capacity_to'     => 'Weight To',
+    'auto_volume_from'   => 'Volume From',
+    'auto_volume_to'     => 'Volume To',
     'btn-submit'    => 'Search',
     'btn-cancel'    => 'Cancel',
     

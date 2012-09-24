@@ -1,21 +1,23 @@
 @layout('layout.form')
 
 @section('content')
-    {{ Form::open('/', 'post', array('class' => 'form-horizontal')) }}
+    {{ Form::open($action, 'post', array('class' => 'form-horizontal')) }}
         <fieldset>
         
         <legend>{{ $title }}</legend>
-        <div class="control-group"></div>
-        
+<!--         <div class="control-group"></div>
+ -->        
+        <legend></legend>
         <!-- Fields-->
-        <legend>fields1col</legend>
-        @yield('fields1col')
-        <legend>fields2col</legend>
-        @yield('fields2col')
+        @foreach ($fieldsets as $fields)
+            <div class="span5">
+            <?php echo render('forms.fieldlist', array('fields' => $fields->get(), 'labels' => $labels)); ?>
+            </div>
+        @endforeach
         
         <legend></legend>
         <!-- Buttons-->
-        <div class="control-group">
+        <div class="control-group offset2">
             <div class="controls">
                 {{ Form::submit(__($labels.'.btn-submit'), array('class' => 'btn btn-primary')) }}
                 {{ HTML::link('/', __($labels.'.btn-cancel'), array('class' => 'btn')) }}

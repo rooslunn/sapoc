@@ -68,9 +68,9 @@ Route::group(array('before' => 'auth'), function() {
 });
 
 // search
-Route::get('search/freight' , 'search@make');
+Route::get('search/freight' , 'search@make2');
 Route::post('search/freight', 'search@make');
-Route::get('search/trans'   , 'search@make');
+Route::get('search/trans'   , 'search@make2');
 Route::post('search/trans'  , 'search@make');
 
 // test

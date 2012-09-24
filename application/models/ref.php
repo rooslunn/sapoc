@@ -20,9 +20,13 @@ class Ref extends Eloquent {
         $ref = static::where_ref_id($for_id)->first(array('ref_comparator'));
         return $ref->ref_comparator;
     }
+
+    public static function is_ref_field($name) {
+        return array_key_exists($name, Config::get('refs'));
+    }
     
     public static function ref_name_by_id($for_id) {
-        $ref = Ref::where_ref_id($for_id)->get(array('ref_name'));
-        return $ref[0]->ref_name;
+        $ref = Ref::where_ref_id($for_id)->first(array('ref_name'));
+        return $ref->ref_name;
     }
 }
