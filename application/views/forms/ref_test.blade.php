@@ -13,7 +13,8 @@
             <div class="control-group" id="group2">
               {{ Form::label('district', 'District', array('class'=>'control-label')) }}
               <div class="controls">
-                {{ Form::text('district', '', array('class' => 'live-district')) }}
+                {{ Form::text('
+                district', '', array('class' => 'live-district')) }}
               </div>
             </div>
         </fieldset>

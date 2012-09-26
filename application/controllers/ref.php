@@ -26,4 +26,9 @@ class Ref_Controller extends Base_Controller {
 		$data = $this->find_by_name(5, $ref_name);
 		return Response::json($data);
 	}
+
+	public function get_test() {
+		return View::make('forms.ref_test');
+	}
+
 }
