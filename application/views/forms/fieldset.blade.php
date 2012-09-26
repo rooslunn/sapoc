@@ -20,6 +20,8 @@
                     <div class="controls">
                     @if ($type == 'select')
                         {{ Form::$type($field->name, $field->source, Input::old($field->name)) }}
+                    @elseif ($type == 'readonly')
+                        <span class="input-large uneditable-input">{{ Input::old($field->name) }}</span>
                     @else
                         {{ Form::$type($field->name, Input::old($field->name)) }}
                     @endif

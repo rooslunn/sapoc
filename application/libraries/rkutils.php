@@ -13,4 +13,12 @@ class RKUtils {
         $date = strtotime($mysqldate);
         return date($format, $date);
     }
+
+    public static function model_to_array($data, $column_name) {
+    	$res = array();
+    	foreach ($data as $rec) {
+    		$res[] = $rec->$column_name;
+    	}
+    	return $res;
+    }
 }

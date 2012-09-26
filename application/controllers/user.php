@@ -3,6 +3,8 @@
 class User_Controller extends Base_Controller {
 	
     const table_view = 'forms.tableset';
+    const register_model = 'models.register';
+    const register_view = 'forms.fieldset'; 
     
     public $restful = true;
     private $config = null;
@@ -32,5 +34,21 @@ class User_Controller extends Base_Controller {
                 'offer/remove' => 'icon-remove',    
             ),
         ));
-	}	
+	}
+	
+	public function get_register() {
+	    $fields = RKFieldSet::from_model(self::register_model);
+        return View::make(self::register_view, array(
+            'fields' => $fields->get(),
+            'action' => URI::current(),
+            'title'  => 'New user',
+            'labels' => 'form-register',
+        ));
+	}
+	
+	public function get_profile() {
+	}
+	
+    public function post_profile() {
+    }
 }

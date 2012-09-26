@@ -19,10 +19,12 @@
         {{ Form::hidden('email', $email) }}
         
         <!-- Fields -->
-        {{ Form::label('email', __('form-login.email')) }}
-        <span class="input-large uneditable-input">{{ $email }}</span>
-<!--        {{ $errors->first('email', '<span class="label label-important">:message</span></p>') }}
-        {{ Form::email('email') }}-->
+        <div class="control-group" id="email">
+            {{ Form::label('email', __('form-login.email')) }}
+            <div class="controls">
+                <span class="input-large uneditable-input">{{ $email }}</span>
+            </div>
+        </div>
         
         {{ Form::label('password', __('form-login.password')) }}
         {{ $errors->first('password', '<span class="label label-important">:message</span></p>') }}
@@ -58,7 +60,11 @@
 -->
         
         <!-- submit button -->
-        {{ Form::submit(__('form-register.btn-register'), array('class' => 'btn btn-primary')) }}
+        <div class="control-group">
+            <div class="controls">
+            {{ Form::submit(__('form-register.btn-register'), array('class' => 'btn btn-primary')) }}
+            </div>
+        </div>
     {{ Form::close() }}
     
 @endsection

@@ -61,7 +61,8 @@
         @yield('grid')
     </div><!--/row-->
 </div><!--/container-->
-    
+
+<script type="text/javascript">var BASE = "<?php echo URL::base(); ?>";</script> 
 {{ Asset::scripts() }}
 
 <!--Datepickers-->
