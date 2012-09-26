@@ -78,9 +78,10 @@ Route::get('search/trans'   , 'search@make2');
 Route::post('search/trans'  , 'search@make');
 
 // livesearch
+Route::get('ref/test', 'ref@test');
 Route::get('ref/country', 'ref@country');
 Route::get('ref/district', 'ref@district');
-Route::get('ref/test', 'ref@test');
+Route::get('ref/town', 'ref@town');
 
 /*
 Route::get('/', function()

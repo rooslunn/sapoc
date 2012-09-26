@@ -22,5 +22,6 @@ jQuery(document).ready(
 	function($) {
 		attach_live_search('.live-country', '/ref/country');
         attach_live_search('.live-district', '/ref/district');
+        attach_live_search('.live-town', '/ref/town');
     }
 );

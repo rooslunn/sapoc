@@ -27,6 +27,12 @@ class Ref_Controller extends Base_Controller {
 		return Response::json($data);
 	}
 
+	public function get_town() {
+		$ref_name = Input::get('q');
+		$data = $this->find_by_name(6, $ref_name);
+		return Response::json($data);
+	}
+
 	public function get_test() {
 		return View::make('forms.ref_test');
 	}

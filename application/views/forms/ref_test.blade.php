@@ -17,6 +17,12 @@
                 district', '', array('class' => 'live-district')) }}
               </div>
             </div>
+            <div class="control-group" id="group3">
+              {{ Form::label('town', 'Town', array('class'=>'control-label')) }}
+              <div class="controls">
+                {{ Form::text('town', '', array('class' => 'live-town')) }}
+              </div>
+            </div>
         </fieldset>
     {{ Form::close() }}
 @endsection   
