@@ -74,8 +74,14 @@ class Sapoc_Controller extends Base_Controller {
     	);
     	
     	$rules = array(
-    	   'email'     => 'email|unique:users|required',
-    	   'password'  => 'required|min:6',
+    	   'email'       => 'email|unique:users|required',
+    	   'password'    => 'required|min:6',
+           'company'     => 'required',
+           'country_id'  => 'required',
+           'district_id' => 'required',
+           'city'        => 'required',
+           'address'     => 'required',
+           'phone_1'     => 'required',
     	);
     	$v = Validator::make($user_data, $rules);
     	

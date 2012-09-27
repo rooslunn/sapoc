@@ -31,19 +31,21 @@
         {{ Form::password('password') }}
         
         {{ Form::label('company', __('form-register.company')) }}
-        {{ Form::text('company') }}
-        
+        {{ Form::text('company', Input::old('company')) }}
+
+        {{-- 
         {{ Form::label('company_id', __('form-register.company_id')) }}
         {{ Form::text('company_id') }}
+        --}}
         
         {{ Form::label('country_id', __('form-register.country_id')) }}
-        {{ Form::text('country_id') }}
+        {{ Form::text('country_id', Input::old('country_id'), array('class'=>'live-country')) }}
         
         {{ Form::label('district_id', __('form-register.district_id')) }}
-        {{ Form::text('district_id') }}
+        {{ Form::text('district_id', Input::old('district_id'), array('class'=>'live-district')) }}
         
         {{ Form::label('city', __('form-register.city')) }}
-        {{ Form::text('city') }}
+        {{ Form::text('city', Input::old('city'), array('class'=>'live-town')) }}
         
         {{ Form::label('address', __('form-register.address')) }}
         {{ Form::text('address') }}

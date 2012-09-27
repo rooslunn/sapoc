@@ -11,7 +11,7 @@
             @if ($type == 'select')
                 {{ Form::$type($field->name, $field->source, Input::old($field->name)) }}
             @else
-                {{ Form::$type($field->name, Input::old($field->name)) }}
+                {{ Form::$type($field->name, Input::old($field->name), $field->attr?$field->attr:array():: ) }}
             @endif
             </div>
         </div>

@@ -34,7 +34,22 @@ class Ref_Controller extends Base_Controller {
 	}
 
 	public function get_test() {
-		return View::make('forms.ref_test');
+		return View::make('forms.ref_test')
+				->with('login_errors', false);
+	}
+
+	public function post_test() {
+		$creds = array(
+		    'username' => Input::get('email'),
+		    'password' => Input::get('pasword')
+		);
+		if (Auth::attempt($creds)) {
+			echo 'Data saved';
+		} else {
+			return Redirect::to('ref/test')
+					->with_input()
+					->with('login_errors', true);
+		}
 	}
 
 }

@@ -23,7 +23,7 @@
                     @elseif ($type == 'readonly')
                         <span class="input-large uneditable-input">{{ Input::old($field->name) }}</span>
                     @else
-                        {{ Form::$type($field->name, Input::old($field->name)) }}
+                        {{ Form::$type($field->name, Input::old($field->name), $field->attr) }}
                     @endif
                     </div>
                 </div>

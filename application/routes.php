@@ -79,6 +79,7 @@ Route::post('search/trans'  , 'search@make');
 
 // livesearch
 Route::get('ref/test', 'ref@test');
+Route::post('ref/test', 'ref@test');
 Route::get('ref/country', 'ref@country');
 Route::get('ref/district', 'ref@district');
 Route::get('ref/town', 'ref@town');

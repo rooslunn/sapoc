@@ -3,11 +3,11 @@
 return array(
     'search' => array(
         'offer_type'    => '{"type":"hidden"}',
-        'from_country'  => '{"type":"text"}',
-        'from_district' => '{"type":"text"}',
+        'from_country'  => '{"type":"text", "attr":{"class":"live-country"}}',
+        'from_district' => '{"type":"text", "attr":{"class":"live-district"}}',
         'legend01' => '{"type":"legend"}',
-        'to_country'    => '{"type":"text"}',
-        'to_district'   => '{"type":"text"}',
+        'to_country'    => '{"type":"text", "attr":{"class":"live-country"}}',
+        'to_district'   => '{"type":"text", "attr":{"class":"live-district"}}',
         'legend02' => '{"type":"legend"}',
         'auto_type'     => '{"type":"select", "source":"refs.auto_type"}',
         'load_date'     => '{"type":"date"}',

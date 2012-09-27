@@ -20,6 +20,7 @@ class RKFieldSet {
                 $field->$prop($value);
             }
             $set->add($field);
+            Log::info(print_r($field, true));
         }
         return $set;
     }
