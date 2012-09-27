@@ -15,6 +15,7 @@ class Base_Controller extends Controller {
 	    Asset::add('bootstrap-css', 'css/bootstrap.min.css');
 	    Asset::add('bootstrap-css-responsive', 'css/bootstrap-responsive.min.css', 'bootstrap-css');
 	    Asset::add('datepicker-css', 'css/datepicker.css', 'bootstrap-css');
+	    Asset::add('sapoc-css', 'css/sapoc.css', 'bootstrap-css');
 	    
 	    //Form macros
 	    Form::macro('date', function($name) {
