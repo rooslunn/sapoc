@@ -77,7 +77,7 @@ class Offer extends Eloquent {
     
     public function get_contacts() {
         if (Auth::guest()) {
-            $s = HTML::link('login', 'Login').' or '.HTML::link('verify', 'Register');
+            $s = HTML::link('login', 'Login').' or '.HTML::link('verify', 'Register').' to view';
         } else {
             $u = User::find($this->user_id);
             // $s = 'Contacts for '.print_r($u, true);    
