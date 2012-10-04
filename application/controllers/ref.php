@@ -39,17 +39,21 @@ class Ref_Controller extends Base_Controller {
 	}
 
 	public function post_test() {
-		$creds = array(
-		    'username' => Input::get('email'),
-		    'password' => Input::get('pasword')
-		);
-		if (Auth::attempt($creds)) {
-			echo 'Data saved';
-		} else {
-			return Redirect::to('ref/test')
-					->with_input()
-					->with('login_errors', true);
+		if (Auth::guest()) {
+			Cookie::put('sapoc_new_offer', json_encode(Input::get()), 30, '/', URL::base());
+			Log::info('Cookied');
 		}
+		// $creds = array(
+		//     'username' => Input::get('email'),
+		//     'password' => Input::get('password')
+		// );
+		// if (Auth::attempt($creds)) {
+		// 	echo 'Data saved';
+		// } else {
+		// 	return Redirect::to('ref/test')
+		// 			->with_input()
+		// 			->with('login_errors', true);
+		// }
 	}
 
 }

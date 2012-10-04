@@ -77,6 +77,12 @@ class Offers_Controller extends Base_Controller {
     }
     
     public function action_new_post() {
+        if (Auth::guest()) {
+            $page = Input::get('offer_type') == 1 ? 'offers/new_freight' : 'offers/new_trans';
+            Cookie::put('rid', $page);
+            return Redirect::to('login')->with_input();
+        }
+
         $input = array(
             'user_id'          => Input::get('user_id'),
             'offer_type'       => Input::get('offer_type'),
@@ -101,7 +107,7 @@ class Offers_Controller extends Base_Controller {
             'auto_license'     => Input::get('auto_license'),
             'comments'         => Input::get('comments'),
         );
-        
+
         $rules = array(
             'offer_type'   => 'required',
             'from_date'    => 'required',

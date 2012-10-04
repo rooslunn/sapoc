@@ -66,10 +66,11 @@ Route::group(array('before' => 'auth'), function() {
     Route::get('user/bids', 'user@bids');
     Route::get('user/profile', 'user@profile');
     Route::post('user/profile', 'user@profile');
-    Route::get('offers/new_freight', 'offers@new_freight');
-    Route::get('offers/new_trans', 'offers@new_trans');
-    Route::post('offers/new_post', 'offers@new_post');
 });
+
+Route::get('offers/new_freight', 'offers@new_freight');
+Route::get('offers/new_trans', 'offers@new_trans');
+Route::post('offers/new_post', 'offers@new_post');
 
 // search
 Route::get('search/freight' , 'search@make2');

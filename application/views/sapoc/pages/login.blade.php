@@ -11,6 +11,11 @@
             </div>        
         @endif
         
+        <!-- Offer after login -->
+        @foreach(Input::old() as $name=>$value)
+        {{ Form::hidden($name, $value) }}
+        @endforeach
+
         <!-- CSRF -->
         {{ Form::token() }}
 

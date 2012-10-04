@@ -8,9 +8,9 @@
             <!-- Auth if not authed-->
             @if (Auth::guest())
                 @if ($login_errors)
-                <div id="auth" class="modal show">
+                <div id="auth" class="modal show fade in">
                 @else
-                <div id="auth" class="modal hide fade in">
+                <div id="auth" class="modal hide">
                 @endif
                     <div class="modal-header">
                         <a class="close" data-dismiss="modal">×</a>

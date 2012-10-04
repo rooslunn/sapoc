@@ -187,7 +187,8 @@ return array(
 
     // SAPOC config
     'hash_salt'    => 'tgO})}?\3.ST9C\-woLic9r}', // email verification salt
-    'hash_algo'     => 'sha256',
+    'hash_algo'     => 'sha1',
+    // 'hash_algo'     => 'sha256',
     
     'date_input_js'  => 'dd-mm-yyyy',
     'date_input_php' => 'd-m-Y',

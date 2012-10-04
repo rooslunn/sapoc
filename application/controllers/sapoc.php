@@ -24,6 +24,10 @@ class Sapoc_Controller extends Base_Controller {
     	
     	try {
         	if (Auth::attempt($creds)) {
+                if ($redir = Cookie::get('rid')) {
+                    Cookie::forget('rid');
+                    return Redirect::to($redir)->with_input();
+                }
             	return View::make('sapoc.pages.index');
         	} else {
         	   return Redirect::to('login')
@@ -35,22 +39,22 @@ class Sapoc_Controller extends Base_Controller {
 	}
 	
 	public function action_register() {
+        Log::info(print_r(Input::all(), true));
 	    $input = array(
-    	    'email' => Input::get('e'),
-    	    'code' => Input::get('v'),
+    	    'email' => Input::get('email'),
+    	    'code' => Input::get('code'),
     	);
     	$rules = array(
     	    'email' => 'email|required',
     	    'code'  => 'required'
     	);
     	$v = Validator::make($input, $rules);
-    	$not_valid = $v->fails() || !$this->is_code_correct($input);
-    	if ($not_valid) {
+    	if ($v->fails() || !$this->is_code_correct($input)) {
             return View::make('sapoc.pages.verification')
                         ->with('message', __('form-verify.fail'))
                         ->with('link', URL::base());
     	}
-    	return View::make('sapoc.pages.register', $input);
+    	return View::make('sapoc.pages.register');
 	}
 	
 	private function is_code_correct(array $input)	{
@@ -93,7 +97,8 @@ class Sapoc_Controller extends Base_Controller {
     	}
     	
     	if ($v->fails()) {
-        	return Redirect::to('register')
+        	return Redirect::to($this->get_verification_link($user_data['email']))
+                       ->with('register_errors', true) 
         	           ->with_errors($v)
         	           ->with_input();
     	} else {
@@ -142,7 +147,7 @@ class Sapoc_Controller extends Base_Controller {
     
     private function get_verification_link($email) {
         $vcode = $this->get_verification_code($email);
-        $link = sprintf("%s?e=%s&v=%s",
+        $link = sprintf("%s?email=%s&code=%s",
             url('register'),
             urlencode($email),
             $vcode
