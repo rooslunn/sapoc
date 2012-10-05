@@ -71,7 +71,7 @@ return array(
 			'driver'   => 'mysql',
 			'host'     => '127.0.0.1',
 			'database' => 'sapoc',
-			'username' => 'root',
+			'username' => 'sapoc',
 			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
