@@ -23,7 +23,10 @@
 
 $environments = array(
 
-	'local' => array('http://localhost*', '*.dev'),
+	// 'local' => array('http://localhost*', '*.dev'),
+    'local' => array('http://sapoc.ua.local*'),
+    'fog'   => array('http://sapoc.phpfogapp.com*'),
+    'prod'  => array('http://sapoc.info*'),
 
 );
 
